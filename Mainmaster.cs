@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ADOX;
 
 namespace Masterpagedesign
 {
@@ -121,6 +122,59 @@ namespace Masterpagedesign
             Task tk = new Masterpagedesign.Task(menuname);
             tk.Show();
         }
+        private void btndb_Click(object sender, EventArgs e)
+        {
+            var cat = new ADOX.Catalog();
+            cat.Create("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\\DINESHKUMAR B\\sample.mdb;Jet OLEDB:Engine Type=5");
+            MessageBox.Show("Database Created Successfully");
+            cat = null;
+        }
+        private void btnent_Click(object sender, EventArgs e)
+        {
+            menuname = "VIEW";
+            this.btnentry.Visible = false;
+            this.btnent.Visible = false;
+            Display dis = new Display(username);
+            dis.Show();
+        }
+        private void btnentry_Click(object sender, EventArgs e)
+        {
+            menuname = "Entry";
+
+            DataTable dtdaily = new DataTable();
+            DataTable dtuser = new DataTable();
+            dtuser = pack.Getname(username);
+           
+            try
+            {
+                dtdaily = pack.dailyactsel(dtuser.Rows [0]["UNAME"].ToString());
+                if (dtdaily.Rows .Count > 0)
+                {                  
+                    MessageBox.Show("YOU ALREADY ENTER THE ACTION FOR TODAY");
+                    this.btnentry.Visible = false;
+                    btnent.Location = new Point(550, 237);
+                }
+                else
+                {
+                    Dailyentry de = new Masterpagedesign.Dailyentry(username);
+                    //btnent.Visible = false;
+                    this.btnentry.Visible = false;
+                    this. btnent.Location = new Point(550, 237);
+                    de.Show();
+                }              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }  
+        }
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.btnentry.Visible = true;
+            btnent.Location = new Point(760, 237);
+            maspanel.Update();
+            this.Update();
+        }
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             menuname = "New Task";
@@ -183,7 +237,8 @@ namespace Masterpagedesign
         }
         private void profileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Userdata us = new Userdata(username);
+            menuname = "profile";
+            Userdata us = new Userdata(username, menuname);
             us.Show();
         }
     }

@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn6 = new Telerik.WinControls.UI.GridViewBrowseColumn();
-            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn7 = new Telerik.WinControls.UI.GridViewBrowseColumn();
-            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn8 = new Telerik.WinControls.UI.GridViewBrowseColumn();
-            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn9 = new Telerik.WinControls.UI.GridViewBrowseColumn();
-            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn10 = new Telerik.WinControls.UI.GridViewBrowseColumn();
-            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition2 = new Telerik.WinControls.UI.TableViewDefinition();
+            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn1 = new Telerik.WinControls.UI.GridViewBrowseColumn();
+            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn2 = new Telerik.WinControls.UI.GridViewBrowseColumn();
+            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn3 = new Telerik.WinControls.UI.GridViewBrowseColumn();
+            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn4 = new Telerik.WinControls.UI.GridViewBrowseColumn();
+            Telerik.WinControls.UI.GridViewBrowseColumn gridViewBrowseColumn5 = new Telerik.WinControls.UI.GridViewBrowseColumn();
+            Telerik.WinControls.Data.SortDescriptor sortDescriptor1 = new Telerik.WinControls.Data.SortDescriptor();
+            Telerik.WinControls.UI.TableViewDefinition tableViewDefinition1 = new Telerik.WinControls.UI.TableViewDefinition();
             this.proinspanel = new System.Windows.Forms.Panel();
             this.cmblan = new System.Windows.Forms.ComboBox();
             this.btncan = new System.Windows.Forms.Button();
@@ -219,7 +220,7 @@
             this.proviewpanel.Controls.Add(this.lblprodet);
             this.proviewpanel.Location = new System.Drawing.Point(358, 4);
             this.proviewpanel.Name = "proviewpanel";
-            this.proviewpanel.Size = new System.Drawing.Size(546, 308);
+            this.proviewpanel.Size = new System.Drawing.Size(581, 308);
             this.proviewpanel.TabIndex = 1;
             // 
             // Rgvpro
@@ -235,43 +236,47 @@
             // 
             this.Rgvpro.MasterTemplate.AllowAddNewRow = false;
             this.Rgvpro.MasterTemplate.AllowColumnReorder = false;
-            gridViewBrowseColumn6.EnableExpressionEditor = false;
-            gridViewBrowseColumn6.FieldName = "PRJID";
-            gridViewBrowseColumn6.HeaderText = "PROJECT ID";
-            gridViewBrowseColumn6.Name = "PRJID";
-            gridViewBrowseColumn6.Width = 78;
-            gridViewBrowseColumn7.EnableExpressionEditor = false;
-            gridViewBrowseColumn7.FieldName = "PRJNAME";
-            gridViewBrowseColumn7.HeaderText = "PROJECT NAME";
-            gridViewBrowseColumn7.Name = "PRJNAME";
-            gridViewBrowseColumn7.Width = 154;
-            gridViewBrowseColumn8.EnableExpressionEditor = false;
-            gridViewBrowseColumn8.FieldName = "PRJLAN";
-            gridViewBrowseColumn8.HeaderText = "LANGUAGE";
-            gridViewBrowseColumn8.Name = "PRJLAN";
-            gridViewBrowseColumn8.Width = 73;
-            gridViewBrowseColumn9.EnableExpressionEditor = false;
-            gridViewBrowseColumn9.FieldName = "STDATE";
-            gridViewBrowseColumn9.HeaderText = "START DATE";
-            gridViewBrowseColumn9.Name = "STDATE";
-            gridViewBrowseColumn9.Width = 90;
-            gridViewBrowseColumn10.EnableExpressionEditor = false;
-            gridViewBrowseColumn10.FieldName = "ENDATE";
-            gridViewBrowseColumn10.HeaderText = "END DATE";
-            gridViewBrowseColumn10.Name = "ENDATE";
-            gridViewBrowseColumn10.Width = 72;
+            gridViewBrowseColumn1.EnableExpressionEditor = false;
+            gridViewBrowseColumn1.FieldName = "PRJID";
+            gridViewBrowseColumn1.HeaderText = "PROJECT ID";
+            gridViewBrowseColumn1.Name = "PRJID";
+            gridViewBrowseColumn1.Width = 78;
+            gridViewBrowseColumn2.EnableExpressionEditor = false;
+            gridViewBrowseColumn2.FieldName = "PRJNAME";
+            gridViewBrowseColumn2.HeaderText = "PROJECT NAME";
+            gridViewBrowseColumn2.Name = "PRJNAME";
+            gridViewBrowseColumn2.Width = 154;
+            gridViewBrowseColumn3.EnableExpressionEditor = false;
+            gridViewBrowseColumn3.FieldName = "PRJLAN";
+            gridViewBrowseColumn3.HeaderText = "LANGUAGE";
+            gridViewBrowseColumn3.Name = "PRJLAN";
+            gridViewBrowseColumn3.Width = 73;
+            gridViewBrowseColumn4.EnableExpressionEditor = false;
+            gridViewBrowseColumn4.FieldName = "STDATE";
+            gridViewBrowseColumn4.HeaderText = "START DATE";
+            gridViewBrowseColumn4.Name = "STDATE";
+            gridViewBrowseColumn4.Width = 90;
+            gridViewBrowseColumn5.EnableExpressionEditor = false;
+            gridViewBrowseColumn5.FieldName = "ENDATE";
+            gridViewBrowseColumn5.HeaderText = "COMMIT  DATE";
+            gridViewBrowseColumn5.Name = "ENDATE";
+            gridViewBrowseColumn5.SortOrder = Telerik.WinControls.UI.RadSortOrder.Ascending;
+            gridViewBrowseColumn5.Width = 107;
             this.Rgvpro.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewBrowseColumn6,
-            gridViewBrowseColumn7,
-            gridViewBrowseColumn8,
-            gridViewBrowseColumn9,
-            gridViewBrowseColumn10});
+            gridViewBrowseColumn1,
+            gridViewBrowseColumn2,
+            gridViewBrowseColumn3,
+            gridViewBrowseColumn4,
+            gridViewBrowseColumn5});
             this.Rgvpro.MasterTemplate.EnableAlternatingRowColor = true;
-            this.Rgvpro.MasterTemplate.ViewDefinition = tableViewDefinition2;
+            sortDescriptor1.PropertyName = "ENDATE";
+            this.Rgvpro.MasterTemplate.SortDescriptors.AddRange(new Telerik.WinControls.Data.SortDescriptor[] {
+            sortDescriptor1});
+            this.Rgvpro.MasterTemplate.ViewDefinition = tableViewDefinition1;
             this.Rgvpro.Name = "Rgvpro";
             this.Rgvpro.ReadOnly = true;
             this.Rgvpro.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.Rgvpro.Size = new System.Drawing.Size(484, 185);
+            this.Rgvpro.Size = new System.Drawing.Size(522, 185);
             this.Rgvpro.TabIndex = 2;
             // 
             // lblprodet
@@ -419,7 +424,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Masterpagedesign.Properties.Resources.log11;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(918, 633);
+            this.ClientSize = new System.Drawing.Size(974, 633);
             this.Controls.Add(this.promodpanel);
             this.Controls.Add(this.proviewpanel);
             this.Controls.Add(this.proinspanel);

@@ -174,7 +174,9 @@ namespace Masterpagedesign
             {
                 if (txtuser.Text != "")
                 {
-                    dt = pack.priv(txtuser.Text);
+                    if (lbltitle.Text == "Forget Password")
+                    { 
+                        dt = pack.priv(txtuser.Text);
                     try
                     {
                         if (dt.Rows.Count > 0)
@@ -190,6 +192,11 @@ namespace Masterpagedesign
                     {
                         Console.WriteLine("INVALID USER" + ex.ToString());
                     }
+                }
+                else
+                {
+                    txtpass.Focus();
+                }        
                 }
                 else
                 {
@@ -326,7 +333,7 @@ namespace Masterpagedesign
                 else
                 {
                     pack.userinsert(uid, name, usname, pass, repass, dob, gen, mobno, email, address, role);
-                    Userdata us = new Userdata(usname);
+                    Userdata us = new Userdata(usname,"Register");
                     this.Close();
                     us.Show();
                 }
