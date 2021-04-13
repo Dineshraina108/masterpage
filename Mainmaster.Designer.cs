@@ -31,14 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainmaster));
             this.Menubar = new System.Windows.Forms.MenuStrip();
-            this.loginmenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.scrolltimer = new System.Windows.Forms.Timer(this.components);
-            this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.projectsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,12 +40,20 @@
             this.newToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.queriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loginmenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.profileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.scrolltimer = new System.Windows.Forms.Timer(this.components);
+            this.radThemeManager1 = new Telerik.WinControls.RadThemeManager();
             this.masright = new System.Windows.Forms.Panel();
             this.lblscrolltitle = new System.Windows.Forms.Label();
             this.Mcal = new System.Windows.Forms.MonthCalendar();
             this.lblproject = new System.Windows.Forms.Label();
             this.maspanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btndb = new System.Windows.Forms.Button();
+            this.btnent = new System.Windows.Forms.Button();
             this.btnentry = new System.Windows.Forms.Button();
             this.lbltitle = new System.Windows.Forms.Label();
             this.masleft = new System.Windows.Forms.Panel();
@@ -83,47 +84,12 @@
             this.Menubar.TabIndex = 0;
             this.Menubar.Text = "MenuStrip";
             // 
-            // loginmenu
-            // 
-            this.loginmenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.loginmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.profileToolStripMenuItem,
-            this.logoutToolStripMenuItem});
-            this.loginmenu.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
-            this.loginmenu.Name = "loginmenu";
-            this.loginmenu.Size = new System.Drawing.Size(49, 20);
-            this.loginmenu.Text = "Login";
-            // 
-            // logoutToolStripMenuItem
-            // 
-            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
-            // 
-            // profileToolStripMenuItem
-            // 
-            this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
-            this.profileToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.profileToolStripMenuItem.Text = "Profile";
-            this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
-            // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // queriesToolStripMenuItem
-            // 
-            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
-            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.queriesToolStripMenuItem.Text = "Queries";
-            this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
-            // 
-            // scrolltimer
-            // 
-            this.scrolltimer.Tick += new System.EventHandler(this.scrolltimer_Tick);
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // projectsToolStripMenuItem
             // 
@@ -170,23 +136,59 @@
             // newToolStripMenuItem1
             // 
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.newToolStripMenuItem1.Text = "New";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
             // viewToolStripMenuItem1
             // 
             this.viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
-            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.viewToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.viewToolStripMenuItem1.Text = "View";
             this.viewToolStripMenuItem1.Click += new System.EventHandler(this.viewToolStripMenuItem1_Click);
             // 
             // modifyToolStripMenuItem1
             // 
             this.modifyToolStripMenuItem1.Name = "modifyToolStripMenuItem1";
-            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.modifyToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.modifyToolStripMenuItem1.Text = "Modify";
             this.modifyToolStripMenuItem1.Click += new System.EventHandler(this.modifyToolStripMenuItem1_Click);
+            // 
+            // queriesToolStripMenuItem
+            // 
+            this.queriesToolStripMenuItem.Name = "queriesToolStripMenuItem";
+            this.queriesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.queriesToolStripMenuItem.Text = "Queries";
+            this.queriesToolStripMenuItem.Click += new System.EventHandler(this.queriesToolStripMenuItem_Click);
+            // 
+            // loginmenu
+            // 
+            this.loginmenu.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.loginmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profileToolStripMenuItem,
+            this.logoutToolStripMenuItem});
+            this.loginmenu.Margin = new System.Windows.Forms.Padding(0, 0, 50, 0);
+            this.loginmenu.Name = "loginmenu";
+            this.loginmenu.Size = new System.Drawing.Size(49, 20);
+            this.loginmenu.Text = "Login";
+            // 
+            // profileToolStripMenuItem
+            // 
+            this.profileToolStripMenuItem.Name = "profileToolStripMenuItem";
+            this.profileToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.profileToolStripMenuItem.Text = "Profile";
+            this.profileToolStripMenuItem.Click += new System.EventHandler(this.profileToolStripMenuItem_Click);
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // scrolltimer
+            // 
+            this.scrolltimer.Tick += new System.EventHandler(this.scrolltimer_Tick);
             // 
             // masright
             // 
@@ -234,7 +236,8 @@
             // 
             this.maspanel.BackgroundImage = global::Masterpagedesign.Properties.Resources.log11;
             this.maspanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.maspanel.Controls.Add(this.button1);
+            this.maspanel.Controls.Add(this.btndb);
+            this.maspanel.Controls.Add(this.btnent);
             this.maspanel.Controls.Add(this.btnentry);
             this.maspanel.Controls.Add(this.lbltitle);
             this.maspanel.Controls.Add(this.masleft);
@@ -245,29 +248,42 @@
             this.maspanel.TabIndex = 7;
             this.maspanel.Paint += new System.Windows.Forms.PaintEventHandler(this.maspanel_Paint);
             // 
-            // button1
+            // btndb
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(760, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 196);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "VIEW  ENTRIES";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btndb.Location = new System.Drawing.Point(575, 488);
+            this.btndb.Name = "btndb";
+            this.btndb.Size = new System.Drawing.Size(75, 23);
+            this.btndb.TabIndex = 4;
+            this.btndb.Text = "Database";
+            this.btndb.UseVisualStyleBackColor = true;
+            this.btndb.Visible = false;
+            this.btndb.Click += new System.EventHandler(this.btndb_Click);
+            // 
+            // btnent
+            // 
+            this.btnent.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnent.BackgroundImage")));
+            this.btnent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnent.Location = new System.Drawing.Point(760, 237);
+            this.btnent.Name = "btnent";
+            this.btnent.Size = new System.Drawing.Size(173, 196);
+            this.btnent.TabIndex = 3;
+            this.btnent.Text = "VIEW  ENTRIES";
+            this.btnent.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnent.UseVisualStyleBackColor = true;
+            this.btnent.Click += new System.EventHandler(this.btnent_Click);
             // 
             // btnentry
             // 
             this.btnentry.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnentry.BackgroundImage")));
             this.btnentry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnentry.Location = new System.Drawing.Point(441, 234);
+            this.btnentry.Location = new System.Drawing.Point(461, 237);
             this.btnentry.Name = "btnentry";
-            this.btnentry.Size = new System.Drawing.Size(172, 188);
+            this.btnentry.Size = new System.Drawing.Size(172, 196);
             this.btnentry.TabIndex = 2;
             this.btnentry.Text = "NEW ENTRY";
             this.btnentry.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnentry.UseVisualStyleBackColor = true;
+            this.btnentry.Click += new System.EventHandler(this.btnentry_Click);
             // 
             // lbltitle
             // 
@@ -386,7 +402,7 @@
         private System.Windows.Forms.Label lblupcom;
         private System.Windows.Forms.Label lblgar;
         private Telerik.WinControls.RadThemeManager radThemeManager1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnent;
         private System.Windows.Forms.Button btnentry;
         private System.Windows.Forms.ToolStripMenuItem profileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem projectsToolStripMenuItem;
@@ -397,6 +413,7 @@
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem1;
+        private System.Windows.Forms.Button btndb;
     }
 }
 

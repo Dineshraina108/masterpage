@@ -234,6 +234,23 @@ namespace Masterpagedesign
             }
             return dt;
         }
+        public DataTable profiledata(int uid)
+        {
+            DataTable dt = new DataTable();
+            query = "SELECT * FROM profiledata where usid="+ uid +"";
+            try
+            {
+                con.Open();
+                oda = new OracleDataAdapter(query, con);
+                oda.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return dt;
+        }
         #endregion
         #region feedback table
         public void feedbackins(int id, string name,string pos,string proc,string dept, string desc)
@@ -518,6 +535,66 @@ namespace Masterpagedesign
                 Console.WriteLine("VALUES UPDATED");
             else
                 Console.WriteLine("VALUES NOT UPDATED");
+        }
+        #endregion
+        #region TKUSERACT table
+        public void dailyactins(int id, string name, string wdate,string pro,string lan,string scre,string action)
+        {
+            int result = 0;
+            query = "INSERT INTO TKUSERACT VALUES(" + id + ",TKUSERACT_SNO.nextval,'" + name + "','" + wdate + "','" + pro + "','" + lan + "','" + scre + "','" + action + "')";
+            try
+            {
+                con.Open();
+                OracleCommand cmd = new OracleCommand(query, con);
+                result = cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+                //MessageBox.Show(e.ToString());
+            }
+            con.Close();
+            if (result > 0)
+                Console.WriteLine("Your action added");
+            else
+                Console.WriteLine("Your action not added");
+        }
+        public DataTable dailyactsel(string user)
+        {
+            DataTable dt = new DataTable();
+            DateTime date = DateTime.Now.Date;
+            string dat = Convert.ToString(date.ToString("dd/MM/yyyy"));
+            query = "SELECT * FROM TKUSERACT WHERE WRDATE='" + dat + "' AND USERNAME=" + user + "";
+            try
+            {
+                con.Open();
+                oda = new OracleDataAdapter(query, con);
+                oda.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return dt;
+        }
+        public DataTable dailyact(string pro)
+        {
+            DataTable dt = new DataTable();
+            query = "SELECT * FROM TKUSERACT WHERE PRNAME='" + pro + "' ORDER BY SNO";
+            try
+            {
+                con.Open();
+                oda = new OracleDataAdapter(query, con);
+                oda.Fill(dt);
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return dt;
         }
         #endregion
     }

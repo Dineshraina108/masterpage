@@ -14,17 +14,57 @@ namespace Masterpagedesign
     {
         package pack = new package();
         int id, cid;
-        string pos, proc, dept;
+        string pos, proc, dept,mname;
         DataTable usdt = new DataTable();
-        public Userdata(string user)
+        public Userdata(string user,string menuname)
         {
             InitializeComponent();
             txtname.Text = user;
+            mname = menuname;
         }
         private void Userdata_Load(object sender, EventArgs e)
         {
-            usdt = pack.Getname(txtname.Text);
-            txtname.Text = usdt.Rows[0].Field<string>("UNAME");
+            if(mname == "profile")
+            {
+                DataTable dt = new DataTable();
+                DataTable uname = new DataTable();
+                this.profileviewpanel.Visible = true;
+                this.profileinspanel.Visible = false;
+                try
+                {
+                    uname = pack.Getname(txtname.Text);
+                    usdt = pack.usid(uname.Rows[0]["UNAME"].ToString());
+                    id = Convert.ToInt32(usdt.Rows[0]["USID"].ToString());
+                    dt = pack.profiledata(id);
+                    txtusid.Text = dt.Rows[0]["USID"].ToString();
+                    txtuname.Text = dt.Rows[0]["UNAME"].ToString();
+                    txtdob.Text = dt.Rows[0]["DOB"].ToString();
+                    txtcarrid.Text = dt.Rows[0]["CAREERID"].ToString();
+                    txtcrdate.Text = dt.Rows[0]["CRDATE"].ToString();
+                    txtposi.Text = dt.Rows[0]["POSITION"].ToString();
+                    txtproc.Text = dt.Rows[0]["PROCESS"].ToString();
+                    txtdeptm.Text = dt.Rows[0]["DEPT"].ToString();
+                    txtgen.Text = dt.Rows[0]["GENDER"].ToString();
+                    txtmobno.Text = dt.Rows[0]["MOBILENO"].ToString();
+                    txtemail.Text = dt.Rows[0]["EMAILID"].ToString();
+                    txtaddr.Text = dt.Rows[0]["ADDRESS"].ToString();
+                    profileviewpanel.Location = profileinspanel.Location;
+                    this.Width = profileviewpanel.Width;
+                    this. Height = profileviewpanel.Height;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                profileviewpanel.Update();
+            }
+            else
+            {
+                this.profileviewpanel.Visible = false;
+                this.profileinspanel.Visible = true;
+                usdt = pack.Getname(txtname.Text);
+                txtname.Text = usdt.Rows[0].Field<string>("UNAME");
+            }       
         }
         #region KEY DOWN FUNCTIONS
         private void txtname_KeyDown(object sender, KeyEventArgs e)
@@ -127,5 +167,6 @@ namespace Masterpagedesign
                 MessageBox.Show("Please Enter all details");
         }
         #endregion
+        //Date	Application	Technology	Resource	Screen/Report Name	Task
     }
 }
